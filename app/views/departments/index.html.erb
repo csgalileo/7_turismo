@@ -1,8 +1,10 @@
-<h1>Listing departments</h1>
+<div id = "footer">
+	<p><h3>Listado de Departamentos</h3></p>
+</div>
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>Nombre</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,9 +13,9 @@
 <% @departments.each do |department| %>
   <tr>
     <td><%= department.Name %></td>
-    <td><%= link_to 'Show', department %></td>
-    <td><%= link_to 'Edit', edit_department_path(department) %></td>
-    <td><%= link_to 'Destroy', department, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Mostrar', department %></td>
+    <td><%= link_to 'Editar', edit_department_path(department) %></td>
+    <td><%= link_to 'Eliminar', department, :confirm => '¿Estás seguro(a)?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
