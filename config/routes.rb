@@ -1,4 +1,8 @@
 TuriGuate::Application.routes.draw do
+  resources :departments
+
+  resources :activities
+
   devise_for :users
 
   # The priority is based upon order of creation:
