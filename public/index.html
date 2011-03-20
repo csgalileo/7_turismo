@@ -16,7 +16,6 @@ Released   : 20091106
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" %> 
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -26,15 +25,8 @@ Released   : 20091106
 <link href="stylesheets/style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
-
-<div id="user_nav">
-  <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>. Not you?
-    <%= link_to "Sign out", destroy_user_session_path %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-  <% end %>
-</div>
+Si no tienes usuario <a href = "users/sign_up"> Registrate</a>
+o <a href = "users/sign_in"> Ingresa</a>
 
 <div id="wrapper">
 	<div id="menu">
@@ -150,7 +142,7 @@ Released   : 20091106
 	<!-- end #page -->
 </div>
 	<div id="footer">
-		<p>Copyright (c) 2008 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+		<p>"Conocer Guatemala nunca fue tan facil "</a>.</p>
 	</div>
 	<!-- end #footer -->
 </body>
