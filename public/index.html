@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by Free CSS Templates
@@ -10,15 +12,30 @@ Version    : 1.0
 Released   : 20091106
 
 -->
+
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" %> 
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+
 <title>TuriGuate</title>
 <link href="stylesheets/style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
+
+<div id="user_nav">
+  <% if user_signed_in? %>
+    Signed in as <%= current_user.email %>. Not you?
+    <%= link_to "Sign out", destroy_user_session_path %>
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+  <% end %>
+</div>
+
 <div id="wrapper">
 	<div id="menu">
 		<ul>
@@ -68,6 +85,8 @@ Released   : 20091106
 					<p class="links"><a href="#">Read More</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Comments</a></p>
 				</div>
 			</div>
+					
+			
 		<div style="clear: both;">&nbsp;</div>
 		</div>
 		<!-- end #content -->

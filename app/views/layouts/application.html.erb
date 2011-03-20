@@ -1,12 +1,23 @@
+<div id="user_nav">
+  <% if user_signed_in? %>
+    Ingresar como <%= current_user.email %>. ¿No eres tú?
+    <%= link_to "Sign out", destroy_user_session_path %>
+  <% else %>
+    <%= link_to "Regístrate", new_user_registration_path %> o <%= link_to "Ingresa", new_user_session_path %>
+  <% end %>
+</div>
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>TuriGuate</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" %> 
   <%= csrf_meta_tag %>
 </head>
 <body>
+
 <%= notice %>
 <%= alert %>
 <%= yield %>
