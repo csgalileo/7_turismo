@@ -44,7 +44,7 @@ class DepartmentsController < ApplicationController
 
     respond_to do |format|
       if @department.save
-        format.html { redirect_to(@department, :notice => 'Department was successfully created.') }
+        format.html { redirect_to(@department, :notice => 'Se ha creado el Departamento Exitosamente.') }
         format.xml  { render :xml => @department, :status => :created, :location => @department }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class DepartmentsController < ApplicationController
 
     respond_to do |format|
       if @department.update_attributes(params[:department])
-        format.html { redirect_to(@department, :notice => 'Department was successfully updated.') }
+        format.html { redirect_to(@department, :notice => 'Se ha actualizado el Departamento Exitosamente.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
