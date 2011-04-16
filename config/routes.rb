@@ -1,6 +1,4 @@
 TuriGuate::Application.routes.draw do
-  resources :departments
-
   resources :activities
 
   devise_for :users
