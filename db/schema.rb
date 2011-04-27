@@ -10,10 +10,101 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110320221302) do
+ActiveRecord::Schema.define(:version => 20110427011611) do
 
   create_table "activities", :force => true do |t|
     t.string   "Description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "advertisements", :force => true do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "image_url"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "branches", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "location_id"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "clicks", :force => true do |t|
+    t.string   "ip_address"
+    t.datetime "date"
+    t.integer  "advertisement_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.datetime "date"
+    t.integer  "cod_origin_id"
+    t.integer  "user_id"
+    t.integer  "origin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "description"
+    t.datetime "start_date"
+    t.datetime "final_date"
+    t.string   "title"
+    t.string   "link"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", :force => true do |t|
+    t.string   "image_url"
+    t.string   "comment"
+    t.integer  "cod_origin_id"
+    t.integer  "origin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string   "name"
+    t.string   "tag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "origins", :force => true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "services", :force => true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "services_branches", :force => true do |t|
+    t.integer  "branch_id"
+    t.integer  "service_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sites", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "name"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

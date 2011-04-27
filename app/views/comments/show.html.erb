@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @comment.date %>
+</p>
+
+<p>
+  <b>Cod origin:</b>
+  <%= @comment.cod_origin_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @comment.user %>
+</p>
+
+<p>
+  <b>Origin:</b>
+  <%= @comment.origin %>
+</p>
+
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Ip address:</b>
+  <%= @click.ip_address %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @click.date %>
+</p>
+
+<p>
+  <b>Advertisement:</b>
+  <%= @click.advertisement %>
+</p>
+
+
+<%= link_to 'Edit', edit_click_path(@click) %> |
+<%= link_to 'Back', clicks_path %>

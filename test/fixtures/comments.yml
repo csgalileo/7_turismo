@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  date: 2011-04-26 18:49:00
+  cod_origin_id: 1
+  user: 
+  origin: 
+
+two:
+  date: 2011-04-26 18:49:00
+  cod_origin_id: 1
+  user: 
+  origin: 

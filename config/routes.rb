@@ -1,4 +1,24 @@
 TuriGuate::Application.routes.draw do
+  resources :branches
+
+  resources :sites
+
+  resources :clicks
+
+  resources :advertisements
+
+  resources :images
+
+  resources :comments
+
+  resources :services
+
+  resources :origins
+
+  resources :events
+
+  resources :locations
+
   resources :activities
 
   devise_for :users

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ip_address: MyString
+  date: 2011-04-26 19:03:15
+  advertisement: 
+
+two:
+  ip_address: MyString
+  date: 2011-04-26 19:03:15
+  advertisement: 
