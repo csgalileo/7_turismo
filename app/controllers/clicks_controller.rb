@@ -1,6 +1,8 @@
 class ClicksController < ApplicationController
   # GET /clicks
   # GET /clicks.xml
+  before_filter :authenticate_user!
+    
   def index
     @clicks = Click.all
 

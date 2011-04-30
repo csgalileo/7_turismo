@@ -1,6 +1,9 @@
 class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.xml
+  
+  before_filter :authenticate_user!
+  
   def index
     @activities = Activity.all
 

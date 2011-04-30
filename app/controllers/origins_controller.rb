@@ -1,6 +1,9 @@
 class OriginsController < ApplicationController
   # GET /origins
   # GET /origins.xml
+  
+  before_filter :authenticate_user! 
+  
   def index
     @origins = Origin.all
 

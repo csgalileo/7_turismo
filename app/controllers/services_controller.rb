@@ -1,6 +1,8 @@
 class ServicesController < ApplicationController
   # GET /services
   # GET /services.xml
+  before_filter :authenticate_user!
+    
   def index
     @services = Service.all
 

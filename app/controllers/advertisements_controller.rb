@@ -1,6 +1,8 @@
 class AdvertisementsController < ApplicationController
   # GET /advertisements
   # GET /advertisements.xml
+  before_filter :authenticate_user!
+  
   def index
     @advertisements = Advertisement.all
 

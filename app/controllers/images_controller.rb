@@ -1,6 +1,8 @@
 class ImagesController < ApplicationController
   # GET /images
   # GET /images.xml
+  before_filter :authenticate_user!
+    
   def index
     @images = Image.all
 
