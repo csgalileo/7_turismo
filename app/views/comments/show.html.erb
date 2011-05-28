@@ -20,6 +20,15 @@
   <%= @comment.origin %>
 </p>
 
+<p>
+  <b>Comment:</b>
+  <%= @comment.comment %>
+</p>
+
+<p>
+  <b>Show:</b>
+  <%= @comment.show %>
+</p>
 
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
 <%= link_to 'Back', comments_path %>

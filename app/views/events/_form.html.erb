@@ -19,7 +19,7 @@ o <a href = "users/sign_in"> Ingresa</a>
 <div id="wrapper">
 	<div id="menu">
 		<ul>
-			<script language="JavaScript" src="javascripts/navmenu.js">
+			<script language="JavaScript" src="/javascripts/navmenu.js">
 			</script>
 		</ul>
 	</div>
@@ -70,11 +70,13 @@ o <a href = "users/sign_in"> Ingresa</a>
   <div class="field">
     <%= f.label :link %><br />
     <%= f.text_field :link %>
-  </div>
-  <div class="field">
+  </div>  
+  
+   <div class="field">
     <%= f.label :user %><br />
-    <%= f.text_field :user %>
-  </div>
+	<%= f.collection_select(:user_id, User.all, :id, :email) %>	
+  </div> 
+  
   <div class="actions">
     <%= f.submit %>
     <% end %>

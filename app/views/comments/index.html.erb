@@ -6,6 +6,8 @@
     <th>Cod origin</th>
     <th>User</th>
     <th>Origin</th>
+    <th>Comment</th>
+    <th>Show</th>		
     <th></th>
     <th></th>
     <th></th>
@@ -17,6 +19,8 @@
     <td><%= comment.cod_origin_id %></td>
     <td><%= comment.user %></td>
     <td><%= comment.origin %></td>
+    <td><%= comment.comment %></td>	
+    <td><%= comment.show %></td>		
     <td><%= link_to 'Show', comment %></td>
     <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
     <td><%= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete %></td>
