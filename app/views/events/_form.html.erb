@@ -1,5 +1,48 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+
+<title>TuriGuate</title>
+<link href="stylesheets/style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+Si no tienes usuario <a href = "users/sign_up"> Registrate</a>
+o <a href = "users/sign_in"> Ingresa</a>
+
+<div id="wrapper">
+	<div id="menu">
+		<ul>
+			<li class="current_page_item"><a href="#">Inicio</a></li>
+			<li><a href="#">Actividades</a></li>
+			<li><a href="#">Ubicaciones</a></li>
+			<li><a href="#">Servicios</a></li>
+			
+		</ul>
+	</div>
+	<!-- end #menu -->
+	<div id="header">
+		<div id="logo">
+			<h1><a href="#">TuriGuate </a></h1>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+	<div id="page-bgtop">
+	<div id="page-bgbtm">
+		<div id="content">
+			<div class="post">
+				
+				<div style="clear: both;">&nbsp;</div>
+	
 <%= form_for(@event) do |f| %>
-  <% if @event.errors.any? %>
+ <% if @event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
@@ -33,9 +76,64 @@
   </div>
   <div class="field">
     <%= f.label :user %><br />
-	<%= f.collection_select(:user_id, User.all, :id, :id) %>
+    <%= f.text_field :user %>
   </div>
   <div class="actions">
     <%= f.submit %>
+    <% end %>
   </div>
-<% end %>
+
+
+<br />
+
+
+				</div>
+			</div>
+			<div class="post">
+			
+			</div>
+					
+			
+		<div style="clear: both;">&nbsp;</div>
+		</div>
+		<!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<div id="search" >
+					<form method="get" action="#">
+						<div>
+							<input type="text" name="s" id="search-text" value="" />
+							<input type="submit" id="search-submit" value="Buscar" />
+						</div>
+					</form>
+					</div>
+					<div style="clear: both;">&nbsp;</div>
+				</li>
+				<li>
+					<h2>Explora Nuestro Sitio</h2>
+					<p>Conocer Guatemala Nunca fue tan Fácil</p>
+				</li>
+				<li>
+					<h2>Categorias Por:</h2>
+	        			<ul>
+					<li><a href="#">Departamentos</a></li>
+					<li><a href="#">Actividades</a></li>
+					<li><a href="#">Top 10 Actividades</a></li>
+					</ul>
+				</li>
+				</ul>
+		</div>
+		<!-- end #sidebar -->
+	<div style="clear: both;">&nbsp;</div>
+	</div>
+	</div>
+	</div>
+	<!-- end #page -->
+</div>
+
+<div id = "footer">
+
+</body>
+</html>
+ 

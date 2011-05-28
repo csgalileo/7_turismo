@@ -1,13 +1,55 @@
-<h1>Listing events</h1>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+
+<title>TuriGuate</title>
+<link href="stylesheets/style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+Si no tienes usuario <a href = "users/sign_up"> Registrate</a>
+o <a href = "users/sign_in"> Ingresa</a>
+
+<div id="wrapper">
+	<div id="menu">
+		<ul>
+			<li class="current_page_item"><a href="#">Inicio</a></li>
+			<li><a href="#">Actividades</a></li>
+			<li><a href="#">Ubicaciones</a></li>
+			<li><a href="#">Servicios</a></li>
+			
+		</ul>
+	</div>
+	<!-- end #menu -->
+	<div id="header">
+		<div id="logo">
+			<h1><a href="#">TuriGuate </a></h1>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+	<div id="page-bgtop">
+	<div id="page-bgbtm">
+		<div id="content">
+			<div class="post">
+				
+				<div style="clear: both;">&nbsp;</div>
+				<div class="entry">
+
+<h1>eventos</h1>
 
 <table>
   <tr>
-    <th>Description</th>
-    <th>Start date</th>
-    <th>Final date</th>
-    <th>Title</th>
-    <th>Link</th>
-    <th>User</th>
+    <th>Descripcion Evento</th>
+    <th>Fecha Inicio</th>
+    <th>Fecha Fin</th>
+    <th>Titulo</th>
+    <th>pagina web</th>
+    <th>Usuario</th>
     <th></th>
     <th></th>
     <th></th>
@@ -21,13 +63,67 @@
     <td><%= event.title %></td>
     <td><%= event.link %></td>
     <td><%= event.user %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Mostrar', event %></td>
+    <td><%= link_to 'Editar', edit_event_path(event) %></td>
+    <td><%= link_to 'Borrar', event, :confirm => 'Seguro?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Event', new_event_path %>
+<%= link_to 'Nuevo evento', new_event_path %>
+
+
+<br />
+
+
+				</div>
+			</div>
+			<div class="post">
+			
+			</div>
+					
+			
+		<div style="clear: both;">&nbsp;</div>
+		</div>
+		<!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<div id="search" >
+					<form method="get" action="#">
+						<div>
+							<input type="text" name="s" id="search-text" value="" />
+							<input type="submit" id="search-submit" value="Buscar" />
+						</div>
+					</form>
+					</div>
+					<div style="clear: both;">&nbsp;</div>
+				</li>
+				<li>
+					<h2>Explora Nuestro Sitio</h2>
+					<p>Conocer Guatemala Nunca fue tan Fácil</p>
+				</li>
+				<li>
+					<h2>Categorias Por:</h2>
+	        			<ul>
+					<li><a href="#">Departamentos</a></li>
+					<li><a href="#">Actividades</a></li>
+					<li><a href="#">Top 10 Actividades</a></li>
+					</ul>
+				</li>
+				</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	</div>
+	</div>
+	<!-- end #page -->
+</div>
+
+<div id = "footer">
+
+</body>
+</html>
