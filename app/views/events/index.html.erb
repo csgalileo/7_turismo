@@ -52,14 +52,19 @@ o <a href = "users/sign_in"> Ingresa</a>
     <th></th>
   </tr>
 
-<% @events.each do |event| %>
+
+
+<% Event.find_by_sql("SELECT a.*, b.email FROM Events a
+inner join Users b ON a.user_id = b.id" ).each do |event| %>
+
+
   <tr>
     <td><%= event.description %></td>
     <td><%= event.start_date %></td>
     <td><%= event.final_date %></td>
     <td><%= event.title %></td>
     <td><%= event.link %></td>
-    <td><%= event.user %></td>
+    <td><%= event.email %></td>
     <td><%= link_to 'Mostrar', event %></td>
     <td><%= link_to 'Editar', edit_event_path(event) %></td>
     <td><%= link_to 'Borrar', event, :confirm => 'Seguro?', :method => :delete %></td>

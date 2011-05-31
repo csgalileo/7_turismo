@@ -43,16 +43,29 @@ class CommentsController < ApplicationController
   # POST /comments.xml
   def create
     @comment = Comment.new(params[:comment])
+	@rediroriginid = params[:rediroriginid]
+	@redirorigin = params[:redirorigin]
 
     respond_to do |format|
-      if @comment.save
-        format.html { redirect_to(@comment, :notice => 'Comment was successfully created.') }
-        format.xml  { render :xml => @comment, :status => :created, :location => @comment }
-      else
+		
+      if @comment.save 
+		if @rediroriginid == nil or @rediroriginid.to_s == ""
+			format.html { redirect_to(@comment, :notice => 'Comment was successfully created.') }
+			format.xml  { render :xml => @comment, :status => :created, :location => @comment }
+		else
+			if @redirorigin.to_s == "2"
+				@event = Event.find_by_id(@rediroriginid)
+				format.html { redirect_to(@event, :notice => 'Comment was successfully created.') }
+			elsif @redirorigin.to_s == "1" 
+		
+			end
+		end    
+
+	    else
         format.html { render :action => "new" }
         format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
       end
-    end
+	end
   end
 
   # PUT /comments/1

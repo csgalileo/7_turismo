@@ -35,8 +35,44 @@
 <%= link_to 'Regresars', events_path %>
 
 
+<p>
 
-<form accept-charset="UTF-8" action="/comments" class="new_comment" id="new_comment" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="nQnAF8CWEOBVh62h3ASWEs6VnPC/SrwmCrdEBWPjRKs=" /></div>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>User</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% Comment.find_by_sql("SELECT * FROM Comments a
+inner join Users b ON a.user_id = b.id 
+WHERE a.cod_origin_id = 2 AND a.origin_id = " + @event.id.to_s).each do |comment| %>
+
+  <tr>
+    <td><%= comment.date %></td>
+    <td><%= comment.email %></td>
+    <td><%= comment.comment %></td>	
+
+	<!--	
+    <td><%= link_to 'Show', comment %></td>
+    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+    <td><%= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete %></td>-->
+  </tr>
+<% end %>
+</table>
+
+
+<p>
+
+
+
+<form accept-charset="UTF-8" action="/comments?rediroriginid=<%=@event.id%>&redirorigin=2" class="new_comment" id="new_comment" method="post">
+<div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" />
+<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+</div>
 
   <div class="field">
     <label for="comment_date">Date</label><br />
@@ -193,7 +229,7 @@
   
   <div class="field">
     <label for="comment_cod_origin">Cod origin</label><br />
-	<select id="comment_origin_id" name="comment[origin_id]"><option value="1">Actividad</option>
+	<select id="comment_cod_origin_id" name="comment[cod_origin_id]">
 <option value="2">Evento</option></select>	
   </div> 
   
@@ -206,10 +242,8 @@
   
    <div class="field">
     <label for="comment_origin">Origin</label><br />
-	<select id="comment_origin_id" name="comment[origin_id]"><option value="1">prueba</option>
-<option value="2">otro</option>
-<option value="3">Final de la Champions2</option>
-<option value="4">Final Champions</option></select>	
+	<select id="comment_origin_id" name="comment[origin_id]"><option value="<%=@event.id%>"><%=@event.description%></option>
+</select>	
   </div>   
   
 

@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.xml
   
-  before_filter :authenticate_user!
+ before_filter :authenticate_user!
   
   def index
     @activities = Activity.all
@@ -27,6 +27,9 @@ class ActivitiesController < ApplicationController
   # GET /activities/new
   # GET /activities/new.xml
   def new
+   
+   
+  
     @activity = Activity.new
 
     respond_to do |format|
