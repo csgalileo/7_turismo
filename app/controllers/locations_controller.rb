@@ -1,7 +1,7 @@
 class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.xml
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index]
     
   def index
     @locations = Location.all

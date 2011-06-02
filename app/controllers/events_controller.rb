@@ -1,8 +1,9 @@
 class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
-  before_filter :authenticate_user!
-    
+  
+  before_filter :authenticate_user!, :except => [:index]
+      
   def index
     @events = Event.all
 
@@ -26,6 +27,8 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.xml
   def new
+  
+
     @event = Event.new
 
     respond_to do |format|

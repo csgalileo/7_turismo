@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.xml
-  before_filter :authenticate_user! 
+  before_filter :authenticate_user!, :except => [:index]
   
   def index
     @comments = Comment.all

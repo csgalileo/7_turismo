@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.xml
   
- before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index]
   
   def index
     @activities = Activity.all

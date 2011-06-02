@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
   # GET /images
   # GET /images.xml
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index]
     
   def index
     @images = Image.all

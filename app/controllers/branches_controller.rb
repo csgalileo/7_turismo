@@ -1,7 +1,7 @@
 class BranchesController < ApplicationController
   # GET /branches
   # GET /branches.xml
-  before_filter :authenticate_user! 
+  before_filter :authenticate_user!, :except => [:index]
   
   def index
     @branches = Branch.all

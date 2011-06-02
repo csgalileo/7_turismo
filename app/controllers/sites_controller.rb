@@ -1,7 +1,7 @@
 class SitesController < ApplicationController
   # GET /sites
   # GET /sites.xml
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:index]
     
   def index
     @sites = Site.all
