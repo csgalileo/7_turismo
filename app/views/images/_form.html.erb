@@ -19,14 +19,20 @@
     <%= f.label :comment %><br />
     <%= f.text_field :comment %>
   </div>
+  
   <div class="field">
     <%= f.label :cod_origin_id %><br />
-    <%= f.text_field :cod_origin_id %>
-  </div>
+	<select id="image_cod_origin_id" name="image[cod_origin_id]"><option value="<%= params[ :cod1 ] %>"><%= params[ :cod1 ] %></option>
+	</select>	
+  </div>    
+  
   <div class="field">
-    <%= f.label :origin %><br />
-    <%= f.text_field :origin %>
-  </div>
+    <%= f.label :origin_id %><br />
+	<select id="image_origin_id" name="image[origin_id]"><option value="<%= params[ :cod2 ] %>"><%= params[ :cod2 ] %></option></select>
+  </div>  
+  
+  
+
   <div class="actions">
     <%= f.submit %>
   </div>

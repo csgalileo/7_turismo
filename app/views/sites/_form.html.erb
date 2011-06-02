@@ -11,10 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
+   <div class="field">
     <%= f.label :user %><br />
-    <%= f.text_field :user %>
+	<%= f.collection_select(:user_id, User.all, :id, :email) %>	
+  </div> 
+  
+  <div class="field">
+    <%= f.label :location %><br />
+	<%= f.collection_select(:location_id, Location.all, :id, :name) %>	
+  </div>  
+  
+  
+   <div class="field">
+    <%= f.label :direccion %><br />
+    <%= f.text_field :address %>
   </div>
+  
+   
+ <div class="field">
+    <%= f.label :telefono %><br />
+    <%= f.text_field :phone %>
+  </div> 
+  
+  
+    <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  
+   
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -30,4 +55,8 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  
+
+  
+  
 <% end %>

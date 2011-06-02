@@ -2,7 +2,11 @@
 
 <table>
   <tr>
-    <th>User</th>
+    <th>Usuario</th>
+    <th>Ubicacion</th>
+    <th>Direccion</th>
+    <th>Telefono</th>
+    <th>Email</th>			
     <th>Title</th>
     <th>Name</th>
     <th>Description</th>
@@ -11,10 +15,19 @@
     <th></th>
   </tr>
 
-<% @sites.each do |site| %>
+
+<% Site.find_by_sql("select a.* , b.email as emailuser, c.name as locationname from sites a
+					inner join users b
+					on a.user_id = b.id
+					inner join locations c
+					on a.location_id = c.id").each do |site| %>
   <tr>
-    <td><%= site.user %></td>
-    <td><%= site.title %></td>
+    <td><%= site.emailuser %></td>
+    <td><%= site.locationname %></td>	
+	<td><%= site.address %></td>
+	<td><%= site.phone %></td>
+	<td><%= site.email %></td>
+    <td><%= site.title %></td>		
     <td><%= site.name %></td>
     <td><%= site.description %></td>
     <td><%= link_to 'Show', site %></td>
