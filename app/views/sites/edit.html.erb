@@ -1,6 +1,34 @@
 <h1>Editing site</h1>
 
+
 <%= render 'form' %>
 
 <%= link_to 'Show', @site %> |
 <%= link_to 'Back', sites_path %>
+
+<p>
+<p>
+<%= link_to 'Agregar Imagen', new_image_path + "?cod1=3&cod2=" + @site.id.to_s %>
+
+
+<h1>Listado de Imagenes</h1>
+
+<table>
+  <tr>
+    <th>Image url</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% Image.find_by_sql("select * from images where cod_origin_id = 3 and origin_id =" + @site.id.to_s).each do |image| %>
+  <tr>
+    <td><%= image.image_url %></td>
+    <td><%= image.comment %></td>
+    <td><%= link_to 'Show', image %></td>
+    <td><%= link_to 'Edit', edit_image_path(image) %></td>
+    <td><%= link_to 'Destroy', image, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
