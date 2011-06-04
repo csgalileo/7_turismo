@@ -1,4 +1,8 @@
 TuriGuate::Application.routes.draw do
+  resources :sites_activities
+
+  resources :sites_services
+
   resources :branches
 
   resources :sites

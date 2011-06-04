@@ -1,0 +1,25 @@
+<%= form_for(@sites_service) do |f| %>
+  <% if @sites_service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sites_service.errors.count, "error") %> prohibited this sites_service from being saved:</h2>
+
+      <ul>
+      <% @sites_service.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :site %><br />
+	<%= f.collection_select(:site_id, Site.all, :id, :id) %>
+  </div>
+  <div class="field">
+    <%= f.label :service %><br />
+	<%= f.collection_select(:service_id, Service.all, :id, :description) %>	
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

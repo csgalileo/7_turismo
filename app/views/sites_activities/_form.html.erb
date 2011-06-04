@@ -1,0 +1,25 @@
+<%= form_for(@sites_activity) do |f| %>
+  <% if @sites_activity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sites_activity.errors.count, "error") %> prohibited this sites_activity from being saved:</h2>
+
+      <ul>
+      <% @sites_activity.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :site %><br />
+	<%= f.collection_select(:site_id, Site.all, :id, :id) %>	
+  </div>
+  <div class="field">
+    <%= f.label :activity %><br />
+	<%= f.collection_select(:activity_id, Activity.all, :id, :Description) %>	
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

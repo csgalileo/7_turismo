@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Site:</b>
+  <%= @sites_activity.site.name %>
+</p>
+
+<p>
+  <b>Activity:</b>
+  <%= @sites_activity.activity.Description %>
+</p>
+
+
+<%= link_to 'Edit', edit_sites_activity_path(@sites_activity) %> |
+<%= link_to 'Back', sites_activities_path %>
