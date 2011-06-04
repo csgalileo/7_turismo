@@ -32,3 +32,46 @@
   </tr>
 <% end %>
 </table>
+
+
+
+<h1>Servicios</h1>
+
+<table>
+  <tr>
+    <th>Service</th>
+    <th></th>
+  </tr>
+
+<% SitesService.find_by_sql("select * from sites_services where site_id =" + @site.id.to_s).each do |sites_service| %>
+  <tr>
+    <td><%= sites_service.service.description %></td>
+    <td><%= link_to 'Destroy', sites_service, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<form accept-charset="UTF-8" action="/sites_services?serviceid=<%= @site.id.to_s %>" class="new_sites_service" id="new_sites_service" method="post">
+	<div style="margin:0;padding:0;display:inline">
+		<input name="utf8" type="hidden" value="&#x2713;" />
+		<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+	</div>
+
+  <div class="field">
+    <label for="sites_service_site">Site</label><br />
+	<select id="sites_service_site_id" name="sites_service[site_id]">
+		<option value="<%= @site.id.to_s %>"><%= @site.id.to_s %></option>
+	</select>
+  </div>
+  <div class="field">
+    <label for="sites_service_service">Service</label><br />
+	<select id="sites_service_service_id" name="sites_service[service_id]"
+	<%Service.find_by_sql("select * from services order by description").each do |service| %>		
+		<option value="<%= service.id %>"><%= service.description %></option>
+	<% end %>
+	</select>
+  </div>
+  <div class="actions">
+    <input id="sites_service_submit" name="commit" type="submit" value="Create Sites service" />
+  </div>
+</form>
