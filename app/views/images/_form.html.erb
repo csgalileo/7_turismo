@@ -30,7 +30,15 @@
     <%= f.label :origin_id %><br />
 	<select id="image_origin_id" name="image[origin_id]"><option value="<%= params[ :cod2 ] %>"><%= params[ :cod2 ] %></option></select>
   </div>  
-  
+
+  <div class="field">
+    <%= f.label :posición %><br />
+
+	<select id="image_imagelocation" name="image[imagelocation]">
+	<option value="DERECHA"> DERECHA </option>
+	<option value="IZQUIERDA"> IZQUIERDA </option>
+	<option value="OCULTAR"> OCULTAR IMAGEN </option></select>	
+  </div>    
   
 
   <div class="actions">

@@ -56,8 +56,9 @@ class CommentsController < ApplicationController
 			if @redirorigin.to_s == "2"
 				@event = Event.find_by_id(@rediroriginid)
 				format.html { redirect_to(@event, :notice => 'Comment was successfully created.') }
-			elsif @redirorigin.to_s == "1" 
-		
+			elsif @redirorigin.to_s == "3" 
+				@site = Site.find_by_id(@rediroriginid)
+				format.html { redirect_to(@site, :notice => 'Comment was successfully created.') }		
 			end
 		end    
 

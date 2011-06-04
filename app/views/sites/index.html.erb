@@ -1,15 +1,15 @@
-<h1>Listing sites</h1>
+<h1>Sitios Registrados en TuriGuate</h1>
 
 <table>
   <tr>
     <th>Usuario</th>
-    <th>Ubicacion</th>
-    <th>Direccion</th>
+    <th>Ubicación</th>
+    <th>Dirección</th>
     <th>Telefono</th>
     <th>Email</th>			
-    <th>Title</th>
-    <th>Name</th>
-    <th>Description</th>
+    <th>Título</th>
+    <th>Nombre</th>
+    <th>Descripción</th>
     <th></th>
     <th></th>
     <th></th>
@@ -22,20 +22,21 @@
 					inner join locations c
 					on a.location_id = c.id").each do |site| %>
   <tr>
-    <td><%= site.emailuser %></td>
-    <td><%= site.locationname %></td>	
+    <td><%= site.emailuser %></td>	
 	<td><%= site.address %></td>
 	<td><%= site.phone %></td>
 	<td><%= site.email %></td>
     <td><%= site.title %></td>		
     <td><%= site.name %></td>
     <td><%= site.description %></td>
-    <td><%= link_to 'Show', site %></td>
-    <td><%= link_to 'Edit', edit_site_path(site) %></td>
-    <td><%= link_to 'Destroy', site, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Mostrar', site %></td>
+    <td><%= link_to 'Editar', edit_site_path(site) %></td>
+    <td><%= link_to 'Borrar', site, :confirm => '¿Esta seguro(a)?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
+
+<%= link_to 'Crear Sitio', new_site_path %>
 

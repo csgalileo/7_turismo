@@ -1,18 +1,32 @@
 <p id="notice"><%= notice %></p>
 
+<!--
 <p>
   <b>User:</b>
   <%= @site.user %>
 </p>
 
+-->
+
+<p>
+  <b>Usuario:</b>
+  <%= @site.user.email %>
+</p>
+
+<!--
 <p>
   <b>Ubicacion:</b>
   <%= @site.location_id %>
 </p>
-
+-->
 
 <p>
-  <b>Direccion:</b>
+  <b>Ubicación:</b>
+  <%= @site.location.name %>
+</p>
+
+<p>
+  <b>Dirección:</b>
   <%= @site.address %>
 </p>
 
@@ -31,26 +45,251 @@
 
 
 <p>
-  <b>Title:</b>
+  <b>Título:</b>
   <%= @site.title %>
 </p>
 
 <p>
-  <b>Name:</b>
+  <b>Nombre:</b>
   <%= @site.name %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b>Descripción:</b>
   <%= @site.description %>
 </p>
 
 
-<%= link_to 'Edit', edit_site_path(@site) %> |
-<%= link_to 'Back', sites_path %> 
+<%= link_to 'Editar', edit_site_path(@site) %> |
+<%= link_to 'Regresar', sites_path %> 
 
 <p>
 <p>
+
+
+<p>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>User</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% Comment.find_by_sql("SELECT * FROM Comments a
+inner join Users b ON a.user_id = b.id 
+WHERE a.cod_origin_id = 3 AND a.origin_id = " + @site.id.to_s).each do |comment| %>
+
+  <tr>
+    <td><%= comment.date %></td>
+    <td><%= comment.email %></td>
+    <td><%= comment.comment %></td>	
+
+	<!--	
+    <td><%= link_to 'Show', comment %></td>
+    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+    <td><%= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete %></td>-->
+  </tr>
+<% end %>
+</table>
+
+
+<p>
+
+
+
+<form accept-charset="UTF-8" action="/comments?rediroriginid=<%=@site.id%>&redirorigin=3" class="new_comment" id="new_comment" method="post">
+<div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" />
+<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+</div>
+
+  <div class="field">
+    <label for="comment_date">Date</label><br />
+    <select id="comment_date_1i" name="comment[date(1i)]">
+<option value="2006">2006</option>
+<option value="2007">2007</option>
+<option value="2008">2008</option>
+<option value="2009">2009</option>
+<option value="2010">2010</option>
+<option selected="selected" value="2011">2011</option>
+<option value="2012">2012</option>
+<option value="2013">2013</option>
+<option value="2014">2014</option>
+<option value="2015">2015</option>
+<option value="2016">2016</option>
+</select>
+<select id="comment_date_2i" name="comment[date(2i)]">
+<option value="1">January</option>
+<option value="2">February</option>
+<option value="3">March</option>
+<option value="4">April</option>
+<option selected="selected" value="5">May</option>
+<option value="6">June</option>
+<option value="7">July</option>
+<option value="8">August</option>
+<option value="9">September</option>
+<option value="10">October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+</select>
+<select id="comment_date_3i" name="comment[date(3i)]">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option selected="selected" value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select>
+ &mdash; <select id="comment_date_4i" name="comment[date(4i)]">
+<option selected="selected" value="00">00</option>
+<option value="01">01</option>
+<option value="02">02</option>
+<option value="03">03</option>
+<option value="04">04</option>
+<option value="05">05</option>
+<option value="06">06</option>
+<option value="07">07</option>
+<option value="08">08</option>
+<option value="09">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+</select>
+ : <select id="comment_date_5i" name="comment[date(5i)]">
+<option value="00">00</option>
+<option value="01">01</option>
+<option value="02">02</option>
+<option value="03">03</option>
+<option value="04">04</option>
+<option value="05">05</option>
+<option value="06">06</option>
+<option value="07">07</option>
+<option value="08">08</option>
+<option value="09">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+<option value="32">32</option>
+<option value="33">33</option>
+<option selected="selected" value="34">34</option>
+<option value="35">35</option>
+<option value="36">36</option>
+<option value="37">37</option>
+<option value="38">38</option>
+<option value="39">39</option>
+<option value="40">40</option>
+<option value="41">41</option>
+<option value="42">42</option>
+<option value="43">43</option>
+<option value="44">44</option>
+<option value="45">45</option>
+<option value="46">46</option>
+<option value="47">47</option>
+<option value="48">48</option>
+<option value="49">49</option>
+<option value="50">50</option>
+<option value="51">51</option>
+<option value="52">52</option>
+<option value="53">53</option>
+<option value="54">54</option>
+<option value="55">55</option>
+<option value="56">56</option>
+<option value="57">57</option>
+<option value="58">58</option>
+<option value="59">59</option>
+</select>
+
+  </div>
+  
+  <div class="field">
+    <label for="comment_cod_origin">Cod origin</label><br />
+	<select id="comment_cod_origin_id" name="comment[cod_origin_id]">
+<option value="3">Sitio</option></select>	
+  </div> 
+  
+    
+   <div class="field">
+    <label for="comment_user">User</label><br />
+	<select id="comment_user_id" name="comment[user_id]"><option value="<%= current_user.id %>"><%= current_user.id %></option></select>	
+  </div> 
+  
+  
+   <div class="field">
+    <label for="comment_origin">Origin</label><br />
+	<select id="comment_origin_id" name="comment[origin_id]"><option value="<%=@site.id%>"><%=@site.description%></option>
+</select>	
+  </div>   
+  
+
+  
+  <div class="field">
+    <label for="comment_comment">Comment</label><br />
+    <input id="comment_comment" name="comment[comment]" size="30" type="text" />
+  </div>  
+  
+  <div class="actions">
+    <input id="comment_submit" name="commit" type="submit" value="Compartir" />
+  </div>
+</form>
+
 
 
 
