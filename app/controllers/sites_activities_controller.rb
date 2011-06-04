@@ -26,7 +26,7 @@ class SitesActivitiesController < ApplicationController
   # GET /sites_activities/new.xml
   def new
     @sites_activity = SitesActivity.new
-
+	
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @sites_activity }
@@ -42,11 +42,16 @@ class SitesActivitiesController < ApplicationController
   # POST /sites_activities.xml
   def create
     @sites_activity = SitesActivity.new(params[:sites_activity])
-
+	@redirsiteid = params[:siteid]
     respond_to do |format|
       if @sites_activity.save
-        format.html { redirect_to(@sites_activity, :notice => 'Sites activity was successfully created.') }
-        format.xml  { render :xml => @sites_activity, :status => :created, :location => @sites_activity }
+		if @redirsiteid == nil or @redirsiteid.to_s == ""
+			format.html { redirect_to(@sites_activity, :notice => 'Sites activity was successfully created.') }
+			format.xml  { render :xml => @sites_activity, :status => :created, :location => @sites_activity }
+		else
+			@site = Site.find_by_id(@redirsiteid)
+			format.html { redirect_to(@site, :notice => 'Site Activity was successfully created.' ) }			
+		end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @sites_activity.errors, :status => :unprocessable_entity }

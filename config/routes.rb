@@ -24,10 +24,13 @@ TuriGuate::Application.routes.draw do
   resources :locations
 
   resources :activities
-
+    
   devise_for :users
+    
 
-root :to => "home#index"
+#root :to => "home#index"
+root :to => "index#home"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

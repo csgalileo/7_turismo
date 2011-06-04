@@ -69,6 +69,69 @@
 
 <p>
 
+
+
+<h1>Listado de Imagenes</h1>
+
+<table>
+  <tr>
+    <th>Image url</th>
+    <th>Comment</th>
+    <th>Ubicación</th>	
+
+  </tr>
+
+<% Image.find_by_sql("select * from images where cod_origin_id = 3 and origin_id =" + @site.id.to_s).each do |image| %>
+  <tr>
+    <td><%= image.image_url %></td>
+    <td><%= image.comment %></td>
+    <td><%= image.imagelocation %></td>	
+
+  </tr>
+<% end %>
+</table>
+
+<p>
+<p>
+
+<h1>Servicios</h1>
+
+<table>
+  <tr>
+    <th>Service</th>
+    <th></th>
+  </tr>
+
+<% SitesService.find_by_sql("select * from sites_services where site_id =" + @site.id.to_s).each do |sites_service| %>
+  <tr>
+    <td><%= sites_service.service.description %></td>
+    <td><%= link_to 'Destroy', sites_service, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<p>
+<p>
+
+<h1>Actividades</h1>
+
+
+<table>
+  <tr>
+    <th>Actividad</th>
+    <th></th>
+  </tr>
+
+<% SitesActivity.find_by_sql("select * from sites_activities where site_id =" + @site.id.to_s).each do |sites_activity| %>
+  <tr>
+    <td><%= sites_activity.activity.Description %></td>
+    <td><%= link_to 'Destroy', sites_activity, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<p>
+<p>
+<h1>Comentarios</h1>
 <table>
   <tr>
     <th>Date</th>
@@ -97,6 +160,7 @@ WHERE a.cod_origin_id = 3 AND a.origin_id = " + @site.id.to_s).each do |comment|
 </table>
 
 
+<p>
 <p>
 
 
@@ -289,6 +353,8 @@ WHERE a.cod_origin_id = 3 AND a.origin_id = " + @site.id.to_s).each do |comment|
     <input id="comment_submit" name="commit" type="submit" value="Compartir" />
   </div>
 </form>
+
+
 
 
 

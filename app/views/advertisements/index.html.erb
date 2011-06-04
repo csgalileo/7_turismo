@@ -2,10 +2,11 @@
 
 <table>
   <tr>
-    <th>Start date</th>
-    <th>End date</th>
-    <th>Image url</th>
-    <th>User</th>
+    <th>Fecha de Inicio</th>
+    <th>Fecha Final</th>
+    <th>URL Imagen</th>
+    <th>Usuario</th>
+    <th>Link</th>	
     <th></th>
     <th></th>
     <th></th>
@@ -16,14 +17,15 @@
     <td><%= advertisement.start_date %></td>
     <td><%= advertisement.end_date %></td>
     <td><%= advertisement.image_url %></td>
-    <td><%= advertisement.user %></td>
-    <td><%= link_to 'Show', advertisement %></td>
-    <td><%= link_to 'Edit', edit_advertisement_path(advertisement) %></td>
-    <td><%= link_to 'Destroy', advertisement, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= advertisement.user.email %></td>
+    <td><%= advertisement.link %></td>	
+    <td><%= link_to 'Mostrar', advertisement %></td>
+    <td><%= link_to 'Editar', edit_advertisement_path(advertisement) %></td>
+    <td><%= link_to 'Borrar', advertisement, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Advertisement', new_advertisement_path %>
+<%= link_to 'Nuevo Anuncio', new_advertisement_path %>

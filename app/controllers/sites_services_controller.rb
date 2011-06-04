@@ -42,18 +42,28 @@ class SitesServicesController < ApplicationController
   # POST /sites_services.xml
   def create
     @sites_service = SitesService.new(params[:sites_service])
+	@redirsiteid = params[:siteid]
+	
 
     respond_to do |format|
       if @sites_service.save
-        format.html { redirect_to(@sites_service, :notice => 'Sites service was successfully created.') }
-        format.xml  { render :xml => @sites_service, :status => :created, :location => @sites_service }
-      else
+		if @redirsiteid == nil or @redirsiteid.to_s == ""
+			format.html { redirect_to(@sites_service, :notice => 'Sites service was successfully created.') }
+			format.xml  { render :xml => @sites_service, :status => :created, :location => @sites_service }
+		else
+			@site = Site.find_by_id(@redirsiteid)
+			format.html { redirect_to(@site, :notice => 'Site Service was successfully created.' ) }			
+		end
+	  else
         format.html { render :action => "new" }
         format.xml  { render :xml => @sites_service.errors, :status => :unprocessable_entity }
       end
     end
   end
-
+  
+  
+  
+   
   # PUT /sites_services/1
   # PUT /sites_services/1.xml
   def update

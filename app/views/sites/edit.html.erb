@@ -39,7 +39,7 @@
 
 <table>
   <tr>
-    <th>Service</th>
+    <th>Servicio</th>
     <th></th>
   </tr>
 
@@ -51,7 +51,7 @@
 <% end %>
 </table>
 
-<form accept-charset="UTF-8" action="/sites_services?serviceid=<%= @site.id.to_s %>" class="new_sites_service" id="new_sites_service" method="post">
+<form accept-charset="UTF-8" action="/sites_services?siteid=<%= @site.id.to_s %>" class="new_sites_service" id="new_sites_service" method="post">
 	<div style="margin:0;padding:0;display:inline">
 		<input name="utf8" type="hidden" value="&#x2713;" />
 		<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
@@ -73,5 +73,52 @@
   </div>
   <div class="actions">
     <input id="sites_service_submit" name="commit" type="submit" value="Create Sites service" />
+  </div>
+</form>
+
+
+
+
+<h1>Actividades</h1>
+
+
+<table>
+  <tr>
+    <th>Actividad</th>
+    <th></th>
+  </tr>
+
+<% SitesActivity.find_by_sql("select * from sites_activities where site_id =" + @site.id.to_s).each do |sites_activity| %>
+  <tr>
+    <td><%= sites_activity.activity.Description %></td>
+    <td><%= link_to 'Destroy', sites_activity, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<form accept-charset="UTF-8" action="/sites_activities?siteid=<%= @site.id.to_s %>" class="new_sites_activity" id="new_sites_activity" method="post">
+	<div style="margin:0;padding:0;display:inline">
+		<input name="utf8" type="hidden" value="&#x2713;" />
+		<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+	</div>
+
+  <div class="field">
+    <label for="sites_activity_site">Site</label><br />
+	<select id="sites_activity_site_id" name="sites_activity[site_id]">
+		<option value="<%= @site.id.to_s %>"><%= @site.id.to_s %></option>
+	</select>
+  </div>
+  <div class="field">
+    <label for="sites_activity_activity">Activity</label><br />
+	<select id="sites_activity_activity_id" name="sites_activity[activity_id]">
+	<%Activity.find_by_sql("select * from activities order by Description").each do |activity| %>		
+		<option value="<%= activity.id %>"><%= activity.Description %></option>
+	<% end %>
+	</select>	
+  </div>
+  
+  <div class="actions">
+    <input id="sites_activity_submit" name="commit" type="submit" value="Create Sites activity" />
   </div>
 </form>
