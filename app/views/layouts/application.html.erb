@@ -109,7 +109,6 @@
 								( select  floor( 1 + (rand()*(select count(id) from advertisements where now() between start_date and end_date))) value ) as rand
 								where ads.rank =  rand.value  
 								)").each do |curradvertisement| %>
-    id : <%= curradvertisement.id %> 
 	<br>
 	imagen : <%= curradvertisement.image_url %> 
 	link : /advertisement/<%= curradvertisement.id %> 

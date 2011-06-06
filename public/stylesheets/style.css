@@ -84,6 +84,9 @@ a:hover {
 	width: 620px;
 	padding: 0;
 	margin: 0;
+        table-layout:fixed;
+        word-wrap: break-word;
+        word-break:break-all;
 }
 caption {
 	padding: 0 0 5px 0;
@@ -118,6 +121,8 @@ td {
 	background: #fff;
 	padding: 6px 6px 6px 12px;
 	color: #4f6b72;
+        word-wrap: break-word;
+        word-break:break-all;
 }
 
 

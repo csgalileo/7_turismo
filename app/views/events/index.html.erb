@@ -16,8 +16,8 @@
 
 
 
-<% Event.find_by_sql("SELECT a.*, b.email FROM Events a
-inner join Users b ON a.user_id = b.id" ).each do |event| %>
+<% Event.find_by_sql("SELECT a.*, b.email FROM events a
+inner join users b ON a.user_id = b.id" ).each do |event| %>
 
 
   <tr>
@@ -27,19 +27,9 @@ inner join Users b ON a.user_id = b.id" ).each do |event| %>
     <td><%= event.title %></td>
     <td><%= event.link %></td>
     <td><%= event.email %></td>
-	
     <td><%= link_to 'Mostrar', event %></td>
-	<%  
-		if (defined?(current_user))
-		if current_user != nil
-		if event.user_id == current_user.id 
-		
-	%>
-		<td><%= link_to 'Editar', edit_event_path(event) %></td>
-		<td><%= link_to 'Borrar', event, :confirm => 'Seguro?', :method => :delete %></td>
-	<% else %> <td></td>
-		<td></td>
-	<% end  end end%>
+    <td><%= link_to 'Editar', edit_event_path(event) %></td>
+    <td><%= link_to 'Borrar', event, :confirm => 'Seguro?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
