@@ -8,7 +8,14 @@ TuriGuate::Application.routes.draw do
   resources :sites
 
   resources :clicks
+  
+  #map.connect '/advertisements/click', :controller => 'advertisements', :action => 'click'
 
+resource :advertisements do 
+collection do 
+get 'click'
+end 
+end 
   resources :advertisements
 
   resources :images

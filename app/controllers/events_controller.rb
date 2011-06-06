@@ -2,7 +2,8 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
   
-  before_filter :authenticate_user!, :except => [:index]
+  before_filter :authenticate_user!, :except => [:index] 
+
       
   def index
     @events = Event.all
@@ -39,7 +40,12 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @event = Event.find(params[:id])
+	@event = Event.find(params[:id])	
+	 if @event.user_id != current_user.id 
+		redirect_to :back
+
+	 end
+
   end
 
   # POST /events

@@ -1,3 +1,5 @@
+<%= render 'layouts/advertisement' %>
+
 <div id="user_nav">
   <% if user_signed_in? %>
     Ingresar como <%= current_user.email %>. ¿No eres tú?
@@ -97,6 +99,22 @@
 </div>
 
 <div id = "footer">
-
+<% Advertisement.find_by_sql("select * from advertisements where id = 
+								(select ads.id from(
+								select  @rownumb:=@rownumb+1 'rank', 
+										a.* 
+								from advertisements a, 
+									( select @rownumb:=0) b
+									  where now() between a.start_date and a.end_date) as ads, 
+								( select  floor( 1 + (rand()*(select count(id) from advertisements where now() between start_date and end_date))) value ) as rand
+								where ads.rank =  rand.value  
+								)").each do |curradvertisement| %>
+    id : <%= curradvertisement.id %> 
+	<br>
+	imagen : <%= curradvertisement.image_url %> 
+	link : /advertisement/<%= curradvertisement.id %> 
+	<a href="http://localhost:3000/advertisements/click?advid=<%= curradvertisement.id %>" > imagen link
+	</a>
+<% end %>
 </body>
 </html>

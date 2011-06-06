@@ -1,0 +1,14 @@
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<% Advertisement.find_by_sql("SELECT * FROM advertisements WHERE id="+params[:advid] ).each do |advertisement| 
+		
+	%>
+	window.location="<%= advertisement.link %>";
+	<%	
+	end
+%>
+
+
+
+</script>

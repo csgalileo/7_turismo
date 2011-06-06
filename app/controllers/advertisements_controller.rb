@@ -1,7 +1,7 @@
 class AdvertisementsController < ApplicationController
   # GET /advertisements
   # GET /advertisements.xml
-  before_filter :authenticate_user!, :except => [:index]
+  before_filter :authenticate_user!, :except => [:index, :show, :click]
   
   def index
     @advertisements = Advertisement.all
@@ -81,5 +81,14 @@ class AdvertisementsController < ApplicationController
       format.html { redirect_to(advertisements_url) }
       format.xml  { head :ok }
     end
+  end
+  # GET /advertisements/1/click
+  def click
+		@advtoregister=params[:advid]
+	
+		query = ActiveRecord::Base.connection.raw_connection.prepare("INSERT INTO clicks (ip_address, date, advertisement_id, created_at, updated_at) 
+																	  VALUES('', now()," + @advtoregister + ", now(), now())")
+		query.execute()
+		query.close		
   end
 end
