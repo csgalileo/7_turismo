@@ -1,0 +1,55 @@
+
+
+
+
+<h1>Resultados de la busqueda</h1>
+
+<br>
+<h2>Sitios encontrados</h2>
+
+
+<br>
+
+<% 
+if params[:q] != nil
+	Site.find_by_sql("select a.* from sites a
+							inner join locations b  
+							on a.location_id = b.id  
+							left outer join images c
+							on a.id = c.origin_id
+							and c.cod_origin_id = 3
+							where
+							(a.title like '%"+ params[:q] +"%' or
+							a.name like  '%"+ params[:q] +"%'  or
+							a.description like  '%"+ params[:q] +"%'  or
+							a.address like  '%"+ params[:q] +"%'  or
+							b.name like  '%"+ params[:q] +"%'  or
+							b.tag   like  '%"+ params[:q] +"%'  or
+							c.comment like  '%"+ params[:q] +"%' )").each do |site| %>
+	<%= link_to site.title, site %>
+	 
+	<br>   
+	   
+	<% end 
+end	
+%>
+
+<br>
+<h2>Eventos encontrados</h2>
+
+
+<br>
+
+<% 
+if params[:q] != nil
+	Event.find_by_sql("select a.* from events a where (a.description like '%"+ params[:q] +"%' or a.title like '%"+ params[:q] +"%')").each do |event| %>
+	<%= link_to event.title, event %>
+	 
+	<br>   
+	   
+	<% end 
+end	
+%>
+
+
+<br>

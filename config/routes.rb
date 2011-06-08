@@ -11,11 +11,11 @@ TuriGuate::Application.routes.draw do
   
   #map.connect '/advertisements/click', :controller => 'advertisements', :action => 'click'
 
-resource :advertisements do 
-collection do 
-get 'click'
-end 
-end 
+  resource :advertisements do 
+	collection do 
+		get 'click'
+	end 
+  end 
   resources :advertisements
 
   resources :images
@@ -31,6 +31,14 @@ end
   resources :locations
 
   resources :activities
+  
+  resources :google_map
+  
+  resources :index do 
+	collection do 
+		get 'search'
+	end 
+  end 
     
   devise_for :users
     

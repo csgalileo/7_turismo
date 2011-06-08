@@ -29,7 +29,7 @@
       	  <td><%= image.comment %></td>
           <td><%= image.imagelocation %></td>	
           <td><%= link_to 'Mostrar', image %></td> 
-          <td><%= link_to 'Editar', edit_image_path(image) %></td>
+          <td><%= link_to 'Editar', edit_image_path(image) + "?cod1=3&cod2=" + @site.id.to_s %></td>
           <td><%= link_to 'Borrar', image, :confirm => 'Seguro?', :method => :delete %>
           </td>
        </tr>

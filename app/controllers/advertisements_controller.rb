@@ -87,7 +87,7 @@ class AdvertisementsController < ApplicationController
 		@advtoregister=params[:advid]
 	
 		query = ActiveRecord::Base.connection.raw_connection.prepare("INSERT INTO clicks (ip_address, date, advertisement_id, created_at, updated_at) 
-																	  VALUES('', now()," + @advtoregister + ", now(), now())")
+																	  VALUES('" + request.remote_ip.to_s + "', now()," + @advtoregister + ", now(), now())")
 		query.execute()
 		query.close		
   end

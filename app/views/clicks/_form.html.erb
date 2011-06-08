@@ -19,10 +19,10 @@
     <%= f.label :date %><br />
     <%= f.datetime_select :date %>
   </div>
-   <div class="field">
-    <%= f.label :user %><br />
-	<%= f.collection_select(:advertisement_id, Advertisement.all, :id, :id) %>	
-  </div> 
+  <div class="field">
+    <%= f.label :advertisement %><br />
+    <%= f.text_field :advertisement %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
