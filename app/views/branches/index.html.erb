@@ -2,14 +2,14 @@
 
 <table>
   <tr>
-    <th>User</th>
-    <th>Location</th>
-    <th>Address</th>
-    <th>Phone</th>
+    <th>Usuario</th>
+    <th>Localizacion</th>
+    <th>Direccion</th>
+    <th>Telefono</th>
     <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>     </th>
+    <th>     </th>
+    <th>     </th>
   </tr>
 
 <% @branches.each do |branch| %>
@@ -19,13 +19,13 @@
     <td><%= branch.address %></td>
     <td><%= branch.phone %></td>
     <td><%= branch.email %></td>
-    <td><%= link_to 'Show', branch %></td>
-    <td><%= link_to 'Edit', edit_branch_path(branch) %></td>
-    <td><%= link_to 'Destroy', branch, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Mostrar', branch %></td>
+    <td><%= link_to 'Editar', edit_branch_path(branch) %></td>
+    <td><%= Button_to 'Eliminar', branch, :confirm => 'Seguro?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Branch', new_branch_path %>
+<%= link_to 'Nuevo', new_branch_path %>

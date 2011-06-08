@@ -1,25 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Image url:</b>
+  <b>url: de la imagen</b>
   <%= @image.image_url %>
 </p>
 
 <p>
-  <b>Comment:</b>
+  <b>Comentario:</b>
   <%= @image.comment %>
 </p>
 
 <p>
-  <b>Cod origin:</b>
+  <b>Codigo origen:</b>
   <%= @image.cod_origin_id %>
 </p>
 
 <p>
-  <b>Origin:</b>
+  <b>Origen:</b>
   <%= @image.origin %>
 </p>
 
 
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', new_image_path %>
+<%= link_to 'Editar', edit_image_path(@image) %> |
+<%= link_to 'Regresar', new_image_path %>

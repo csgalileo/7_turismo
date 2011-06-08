@@ -9,9 +9,9 @@
     <th>Titulo</th>
     <th>pagina web</th>
     <th>Usuario</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>       </th>
+    <th>       </th>
+    <th>       </th>
   </tr>
 
 
@@ -29,7 +29,7 @@ inner join users b ON a.user_id = b.id" ).each do |event| %>
     <td><%= event.email %></td>
     <td><%= link_to 'Mostrar', event %></td>
     <td><%= link_to 'Editar', edit_event_path(event) %></td>
-    <td><%= link_to 'Borrar', event, :confirm => 'Seguro?', :method => :delete %></td>
+    <td><%= button_to 'Borrar', event, :confirm => 'Seguro?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

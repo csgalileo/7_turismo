@@ -42,10 +42,30 @@
 	<div id="page">
 	<div id="page-bgtop">
 	<div id="page-bgbtm">
+        <div id="sidebar">
+			<ul>
+				<li>
+					<div id="search" >
+					<form method="get" action="/index/search.html">
+						<div>
+							<input type="text" name="q" id="search-text" value="" />
+							<input type="submit" id="search-submit" value="Buscar" />
+						</div>
+					</form>
+					</div>
+					<div style="clear: both;">&nbsp;</div>
+				</li>
+				
+								</ul>
+		</div>
+		<!-- end #sidebar -->
+
 		<div id="content">
 			<div class="post">
 
-
+<br>
+<br>
+<br>
 <%= notice %>
 <%= alert %>
 <%= yield %>
@@ -64,34 +84,7 @@
 		<div style="clear: both;">&nbsp;</div>
 		</div>
 		<!-- end #content -->
-		<div id="sidebar">
-			<ul>
-				<li>
-					<div id="search" >
-					<form method="get" action="/index/search.html">
-						<div>
-							<input type="text" name="q" id="search-text" value="" />
-							<input type="submit" id="search-submit" value="Buscar" />
-						</div>
-					</form>
-					</div>
-					<div style="clear: both;">&nbsp;</div>
-				</li>
-				<li>
-					<h2>Explora Nuestro Sitio</h2>
-					<p>Conocer Guatemala Nunca fue tan Fácil</p>
-				</li>
-				<li>
-					<h2>Categorias Por:</h2>
-	        			<ul>
-					<li><a href="#">Eventos</a></li>
-					<li><a href="#">Sitios</a></li>
-					</ul>
-				</li>
-				</ul>
-		</div>
-		<!-- end #sidebar -->
-		<div style="clear: both;">&nbsp;</div>
+				<div style="clear: both;">&nbsp;</div>
 	</div>
 	</div>
 	</div>
@@ -112,7 +105,7 @@
 	<br>
 	imagen : <%= curradvertisement.image_url %> 
 	link : /advertisement/<%= curradvertisement.id %> 
-	<a href="http://localhost:3000/advertisements/click?advid=<%= curradvertisement.id %>" > imagen link
+	<a href="/advertisements/click?advid=<%= curradvertisement.id %>" target="_blank" > imagen link
 	</a>
 <% end %>
 </body>

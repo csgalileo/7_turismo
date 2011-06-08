@@ -1,36 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Date:</b>
+  <b>Fecha:</b>
   <%= @comment.date %>
 </p>
 
 <p>
-  <b>Cod origin:</b>
+  <b>Codigo Origen</b>
   <%= @comment.cod_origin_id %>
 </p>
 
 <p>
-  <b>User:</b>
+  <b>Usuario:</b>
   <%= @comment.user %>
 </p>
 
 <p>
-  <b>Origin:</b>
+  <b>Origen:</b>
   <%= @comment.origin %>
 </p>
 
 <p>
-  <b>Comment:</b>
+  <b>Comentario:</b>
   <%= @comment.comment %>
 </p>
 
 <p>
-  <b>Show:</b>
+  <b>Mostrar:</b>
   <%= @comment.show %>
 </p>
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Editar', edit_comment_path(@comment) %> |
+<%= link_to 'Regresar', comments_path %>
 
 aaa:<%= params[:comment_user_id]%> this

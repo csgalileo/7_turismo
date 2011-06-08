@@ -1,13 +1,13 @@
-<h1>Listing comments</h1>
+<h1>Listado de Comentarios</h1>
 
 <table>
   <tr>
-    <th>Date</th>
-    <th>Cod origin</th>
-    <th>User</th>
-    <th>Origin</th>
-    <th>Comment</th>
-    <th>Show</th>		
+    <th>Fecha</th>
+    <th>Codigo Origen</th>
+    <th>Usuario</th>
+    <th>Origen</th>
+    <th>Comentario</th>
+    <th>Mostrar</th>		
     <th></th>
     <th></th>
     <th></th>
@@ -21,9 +21,9 @@
     <td><%= comment.origin %></td>
     <td><%= comment.comment %></td>	
     <td><%= comment.show %></td>		
-    <td><%= link_to 'Show', comment %></td>
-    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-    <td><%= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Mostrar', comment %></td>
+    <td><%= link_to 'Editar', edit_comment_path(comment) %></td>
+    <td><%= button_to 'Eliminar', comment, :confirm => 'Seguro?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

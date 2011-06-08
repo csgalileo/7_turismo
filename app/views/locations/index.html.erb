@@ -16,7 +16,7 @@
     <td><%= location.tag %></td>
     <td><%= link_to 'Mostrar', location %></td>
     <td><%= link_to 'Editar', edit_location_path(location) %></td>
-    <td><%= link_to 'Borrar', location, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= button_to 'Borrar', location, :confirm => 'Seguro?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

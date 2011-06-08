@@ -14,7 +14,7 @@
     <td><%= activity.Description %></td>
     <td><%= link_to 'Mostrar', activity %></td>
     <td><%= link_to 'Editar', edit_activity_path(activity) %></td>
-    <td><%= link_to 'Borrar', activity, :confirm => '¿Estas seguro(a)?', :method => :delete %></td>
+    <td><%= button_to 'Borrar', activity, :confirm => '¿Estas seguro(a)?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

@@ -1,8 +1,8 @@
-<h1>Listing services</h1>
+<h1>Lista de Servicios</h1>
 
 <table>
   <tr>
-    <th>Description</th>
+    <th>Descripcion</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,13 +11,13 @@
 <% @services.each do |service| %>
   <tr>
     <td><%= service.description %></td>
-    <td><%= link_to 'Show', service %></td>
-    <td><%= link_to 'Edit', edit_service_path(service) %></td>
-    <td><%= link_to 'Destroy', service, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Mostrar', service %></td>
+    <td><%= link_to 'Editar', edit_service_path(service) %></td>
+    <td><%= button_to 'Borrar', service, :confirm => 'Seguro?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Service', new_service_path %>
+<%= link_to 'Nuevo Servicio', new_service_path %>

@@ -1,11 +1,11 @@
-<h1>Listing images</h1>
+<h1>Listado de Imagenes</h1>
 
 <table>
   <tr>
-    <th>Image url</th>
-    <th>Comment</th>
-    <th>Cod origin</th>
-    <th>Origin</th>
+    <th>Url de la imagen</th>
+    <th>Comentario</th>
+    <th>Codigo de Origen</th>
+    <th>Origen</th>
     <th>Ubicacion</th>
     <th></th>
     <th></th>
@@ -19,13 +19,13 @@
     <td><%= image.cod_origin_id %></td>
     <td><%= image.origin %></td>
     <td><%= image.imagelocation %></td>
-    <td><%= link_to 'Show', image %></td>
-    <td><%= link_to 'Edit', edit_image_path(image) %></td>
-    <td><%= link_to 'Destroy', image, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Mostrar', image %></td>
+    <td><%= link_to 'Editar', edit_image_path(image) %></td>
+    <td><%= button_to 'Eliminar', image, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Image', new_image_path %>
+<%= link_to 'Nueva Imagen', new_image_path %>

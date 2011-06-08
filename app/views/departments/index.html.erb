@@ -15,7 +15,7 @@
     <td><%= department.Name %></td>
     <td><%= link_to 'Mostrar', department %></td>
     <td><%= link_to 'Editar', edit_department_path(department) %></td>
-    <td><%= link_to 'Eliminar', department, :confirm => '¿Estás seguro(a)?', :method => :delete %></td>
+    <td><%= button_to 'Eliminar', department, :confirm => '¿Estás seguro(a)?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

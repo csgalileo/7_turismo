@@ -21,7 +21,7 @@
     <td><%= advertisement.link %></td>	
     <td><%= link_to 'Mostrar', advertisement %></td>
     <td><%= link_to 'Editar', edit_advertisement_path(advertisement) %></td>
-    <td><%= link_to 'Borrar', advertisement, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= button_to 'Borrar', advertisement, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
