@@ -4,16 +4,30 @@
   <tr>
     <th>Descripcion</th>
     <th></th>
+
+<% if (defined?(current_user))
+	if current_user != nil && current_user.admin
+
+%>
     <th></th>
     <th></th>
+<% end end %>		
   </tr>
 
 <% @services.each do |service| %>
   <tr>
     <td><%= service.description %></td>
     <td><%= link_to 'Mostrar', service %></td>
+
+<% if (defined?(current_user))
+	if current_user != nil && current_user.admin
+
+%>
     <td><%= link_to 'Editar', edit_service_path(service) %></td>
     <td><%= button_to 'Borrar', service, :confirm => 'Seguro?', :method => :delete %></td>
+<% else %> <td></td>
+	<td></td>
+<% end end  %>
   </tr>
 <% end %>
 </table>

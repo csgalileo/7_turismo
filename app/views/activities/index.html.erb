@@ -5,18 +5,30 @@
 <table border = "1" align = "center">
   <tr>
     <th>Descripción</th>
+<% if (defined?(current_user))
+   if current_user != nil && current_user.admin
+%>	
     <th></th>
     <th></th>
+	
+<% end end %>	
   </tr>
 
 <% @activities.each do |activity| %>
   <tr>
-    <td><%= activity.Description %></td>
+    <td><%=raw activity.Description %></td>
     <td><%= link_to 'Mostrar', activity %></td>
+	
+<% if (defined?(current_user))
+if current_user != nil && current_user.admin
+%>
+	
     <td><%= link_to 'Editar', edit_activity_path(activity) %></td>
     <td><%= button_to 'Borrar', activity, :confirm => '¿Estas seguro(a)?', :method => :delete %></td>
+<% else %> <td></td>
+	<td></td>
+<% end end  %>
   </tr>
-<% end %>
-</table>
+<% end %></table>
 
 

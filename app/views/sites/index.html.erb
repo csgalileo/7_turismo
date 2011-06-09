@@ -4,12 +4,10 @@
   <tr>
     <th>Usuario</th>
     <th>Ubicación</th>
-    <th>Dirección</th>
     <th>Telefono</th>
     <th>Email</th>			
     <th>Título</th>
     <th>Nombre</th>
-    <th>Descripción</th>
     <th></th>
     <th></th>
     <th></th>
@@ -23,12 +21,10 @@
 					on a.location_id = c.id").each do |site| %>
   <tr>
     <td><%= site.emailuser %></td>	
-	<td><%= site.address %></td>
 	<td><%= site.phone %></td>
 	<td><%= site.email %></td>
     <td><%= site.title %></td>		
     <td><%= site.name %></td>
-    <td><%= site.description %></td>
     <td><%= link_to 'Mostrar', site %></td>
 
 <% if (defined?(current_user))
@@ -37,7 +33,7 @@
 %>
  
 <td><%= link_to 'Editar', edit_site_path(site) %></td>
-<td><%= link_to 'Borrar', site, :confirm => '¿Esta seguro(a)?', :method => :delete %></td>
+<td><%= button_to 'Borrar', site, :confirm => '¿Esta seguro(a)?', :method => :delete %></td>
 <% else %> <td></td>
 	<td></td>
 <% end end end %>

@@ -1,3 +1,4 @@
+<%= javascript_include_tag :ckeditor %>	
 <%= form_for(@site) do |f| %>
   <% if @site.errors.any? %>
     <div id="error_explanation">
@@ -13,7 +14,7 @@
 
    <div class="field">
     <%= f.label :user %><br />
-	<%= f.collection_select(:user_id, User.all, :id, :email) %>	
+	<%= f.collection_select(:user_id, User.find_by_sql("select * from users where id =" + current_user.id.to_s), :id, :email) %>	
   </div> 
   
   <div class="field">
@@ -50,12 +51,11 @@
   </div>
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.cktext_area :description, :toolbar=>'Full', :width=>'100%', :height=>'100%' %>
   </div>
   
   
 
-  
   <div class="field">
     <%= f.label :latitud %><br />
     <%= f.text_field :latitud %>

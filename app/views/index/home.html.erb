@@ -3,15 +3,49 @@
 		if current_user != nil
 			if current_user.admin
 %>
-				<br>Saludos de parte del Gio, el Lic. y el Checha, administradores.
+				<br>
+
+</h4>
+Buen Dia Adminstradores, Que desean hacer hoy?
+                 <br>
+<b><center>
+<br><a href = "http://localhost:3000/locations">Ubicaciones</a>
+<br><a href = "http://localhost:3000/activities">Actividades</a>
+<br><a href = "http://localhost:3000/advertisements">Publicidad</a>
+<br><a href = "http://localhost:3000/clicks">Registro de Clicks</a>
+<br><a href = "http://localhost:3000/comments">Comentarios</a>
+<br><a href = "http://localhost:3000/images">Imagenes</a>
+<br><a href = "http://localhost:3000/services">Servicios</a>
+</b></center>
 		<%  else %>
 				
-				<br>cuando no sea admin Muestra el texto de Bienvenida <br>
+				<br>
+<br><br><br><h3><font color = "##003366">Bienvenidos a Turiguate</font></h3>
+<br><br>
+<p>Si te gusta Conocer lugares Nuevos, eres del tipo aventurero, tienes un Negocio o simplemente te gusta estar informado, haz venido al lugar correcto!!!<br>
+ No sabes donde empezar ?  Nos gustaria ayudarte !!  mantenerte informado en las actividades que te gustan, lugares de interes, y los servicios que tenemos para ti</p>
+
+<center><b>Conocer Guatemala nunca fue tan Facil !! <br>
+<b>Atentamente
+<br>Los Administradores</b>
+</center>
+
+ <br>
 
 <%			end
 		else %>	
 		
-			<br>Este se muestra si no se ha loggeado nadie.
+			<br>
+
+<h3><font color = "##003366">Bienvenidos a Turiguate</font></h3><br><br>
+<p>Te motivamos a que te  <B><FONT COLOR = "red"><a href = "http://localhost:3000/users/sign_up">REGISTRES</a></font color ></B> o <b><FONT COLOR = "red"><a href = "http://localhost:3000/users/sign_in ">INGRESES</a></font color > </b> es gratis!! </p>
+Y al hacerlo gozaras de contenido exclusivo,noticias,eventos y muchas cosas mas.. y recuerda
+<br>
+<br>
+<center><b>Conocer Guatemala nunca fue tan Facil !! <br>
+<b>Atentamente
+<br>Los Administradores</b>
+</center>
 		
 		<%end%>
 		 	

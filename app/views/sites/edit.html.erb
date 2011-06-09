@@ -26,7 +26,7 @@
 <% Image.find_by_sql("select * from images where cod_origin_id = 3 and origin_id =" + @site.id.to_s).each do |image| %>
        <tr>   
           <td><%= image.image_url %></td>
-      	  <td><%= image.comment %></td>
+      	  <td><%=raw image.comment %></td>
           <td><%= image.imagelocation %></td>	
           <td><%= link_to 'Mostrar', image %></td> 
           <td><%= link_to 'Editar', edit_image_path(image) + "?cod1=3&cod2=" + @site.id.to_s %></td>
@@ -36,18 +36,18 @@
        <% if image.imagelocation == "IZQUIERDA"%>
         <tr> 
           <td colspan ="6"><img src="<%= image.image_url %>" align="left">
-          <%= image.comment %></p></td>
+          <%=raw image.comment %></p></td>
         </tr>
        <%end%> 
        <% if image.imagelocation == "DERECHA"%>
         <tr> 
           <td colspan ="6">
-          <img src="<%= image.image_url %>" align="right"><%= image.comment %></p></td>
+          <img src="<%= image.image_url %>" align="right"><%=raw image.comment %></p></td>
         </tr>
        <%end%> 
        <% if image.imagelocation == "OCULTAR"%>
         <tr> 
-          <td colspan ="6"><%= image.comment %></td>
+          <td colspan ="6"><%=raw image.comment %></td>
         </tr>
        <%end%> 
     
@@ -135,7 +135,7 @@
     <label for="sites_activity_activity">Activity</label><br />
 	<select id="sites_activity_activity_id" name="sites_activity[activity_id]">
 	<%Activity.find_by_sql("select * from activities order by Description").each do |activity| %>		
-		<option value="<%= activity.id %>"><%= activity.Description %></option>
+		<option value="<%= activity.id %>"><%=raw activity.Description %></option>
 	<% end %>
 	</select>	
   </div>

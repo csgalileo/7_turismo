@@ -1,4 +1,4 @@
-				
+<%= javascript_include_tag :ckeditor %>				
 				<div style="clear: both;">&nbsp;</div>
 	
 <%= form_for(@event) do |f| %>
@@ -14,30 +14,33 @@
     </div>
   <% end %>
 
+
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.label :Título %><br />
+    <%= f.text_field :title %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :descripción %><br />
+    <%= f.cktext_area :description, :toolbar=>'Full', :width=>'100%', :height=>'100%' %>	
   </div>
   <div class="field">
-    <%= f.label :start_date %><br />
+    <%= f.label :fecha_inicial %><br />
     <%= f.datetime_select :start_date %>
   </div>
   <div class="field">
-    <%= f.label :final_date %><br />
+    <%= f.label :fecha_final %><br />
     <%= f.datetime_select :final_date %>
   </div>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
+
   <div class="field">
     <%= f.label :link %><br />
     <%= f.text_field :link %>
   </div>  
   
    <div class="field">
-    <%= f.label :user %><br />
-	<%= f.collection_select(:user_id, User.all, :id, :email) %>	
+    <%= f.label :usuario %><br />
+	<%= f.collection_select(:user_id, User.find_by_sql("select * from users where id =" + current_user.id.to_s), :id, :email) %>	
   </div> 
   
   <div class="actions">

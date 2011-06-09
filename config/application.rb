@@ -2,7 +2,8 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-config.autoload_paths += %W( #{config.root}/app/models/ckeditor )  
+#config.autoload_paths += %W( #{config.root} /public/images/upload )
+#config.autoload_paths += %W( #{config.root}/app/models/ckeditor )    
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.

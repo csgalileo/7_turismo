@@ -4,20 +4,28 @@
   <tr>
     <th>Direccion IP</th>
     <th>Fecha</th>
-    <th>Advertencia</th>
+    <th>Id Publicidad</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
+<% if (defined?(current_user))
+	if current_user != nil && current_user.admin
+
+%>
+
+
+
 <% @clicks.each do |click| %>
   <tr>
     <td><%= click.ip_address %></td>
     <td><%= click.date %></td>
-    <td><%= click.advertisement %></td>
+    <td><%= click.advertisement.id %></td>
     <td><%= link_to 'Mostrar', click %></td>
     <td><%= link_to 'Editar', edit_click_path(click) %></td>
     <td><%= button_to 'Eliminar', click, :confirm => 'Esta seguro?', :method => :delete %></td>
+<% end end %>	
   </tr>
 <% end %>
 </table>

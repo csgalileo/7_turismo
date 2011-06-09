@@ -5,7 +5,6 @@
     <th>Fecha</th>
     <th>Codigo Origen</th>
     <th>Usuario</th>
-    <th>Origen</th>
     <th>Comentario</th>
     <th>Mostrar</th>		
     <th></th>
@@ -17,9 +16,8 @@
   <tr>
     <td><%= comment.date %></td>
     <td><%= comment.cod_origin_id %></td>
-    <td><%= comment.user %></td>
-    <td><%= comment.origin %></td>
-    <td><%= comment.comment %></td>	
+    <td><%= comment.user.email %></td>
+    <td><%=raw comment.comment %></td>	
     <td><%= comment.show %></td>		
     <td><%= link_to 'Mostrar', comment %></td>
     <td><%= link_to 'Editar', edit_comment_path(comment) %></td>

@@ -3,11 +3,9 @@
 
 <table>
   <tr>
-    <th>Descripcion Evento</th>
+    <th>Titulo</th>  
     <th>Fecha Inicio</th>
     <th>Fecha Fin</th>
-    <th>Titulo</th>
-    <th>pagina web</th>
     <th>Usuario</th>
     <th>       </th>
     <th>       </th>
@@ -21,11 +19,9 @@ inner join users b ON a.user_id = b.id" ).each do |event| %>
 
 
   <tr>
-    <td><%= event.description %></td>
+    <td><%= event.title %></td>  
     <td><%= event.start_date %></td>
     <td><%= event.final_date %></td>
-    <td><%= event.title %></td>
-    <td><%= event.link %></td>
     <td><%= event.email %></td>
     <td><%= link_to 'Mostrar', event %></td>
 
@@ -35,7 +31,7 @@ inner join users b ON a.user_id = b.id" ).each do |event| %>
    if event.user_id == current_user.id
 %>
  
-	<td><%= link_to 'Editar', edit_site_path(event) %></td>
+	<td><%= link_to 'Editar', edit_event_path(event) %></td>
 	<td><%= button_to 'Borrar', event, :confirm => '¿Esta seguro(a)?', :method => :delete %></td>
 <% else %> <td></td>
 	<td></td>

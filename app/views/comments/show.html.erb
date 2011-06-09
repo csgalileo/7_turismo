@@ -12,17 +12,17 @@
 
 <p>
   <b>Usuario:</b>
-  <%= @comment.user %>
+  <%= @comment.user.email %>
 </p>
 
 <p>
   <b>Origen:</b>
-  <%= @comment.origin %>
+  <%= @comment.origin.description %>
 </p>
 
 <p>
   <b>Comentario:</b>
-  <%= @comment.comment %>
+  <%=raw @comment.comment %>
 </p>
 
 <p>
@@ -32,5 +32,3 @@
 
 <%= link_to 'Editar', edit_comment_path(@comment) %> |
 <%= link_to 'Regresar', comments_path %>
-
-aaa:<%= params[:comment_user_id]%> this

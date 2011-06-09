@@ -1,8 +1,15 @@
+<%= javascript_include_tag :ckeditor %>	
 <p id="notice"><%= notice %></p>
+
+
+<p>
+  <b>Titulo de Evento:</b>
+  <%= @event.title %>
+</p>
 
 <p>
   <b>Descripcion:</b>
-  <%= @event.description %>
+  <%=raw @event.description %>
 </p>
 
 <p>
@@ -15,10 +22,7 @@
   <%= @event.final_date %>
 </p>
 
-<p>
-  <b>Titulo de Evento:</b>
-  <%= @event.title %>
-</p>
+
 
 <p>
   <b>Link:</b>
@@ -48,7 +52,7 @@ WHERE a.cod_origin_id = 2 AND a.origin_id = " + @event.id.to_s).each do |comment
     <td style="background: #CAE8EA url(images/bg_header.jpg) no-repeat;"><%= comment.email %></td>
   </tr>
   <tr>
-    <td colspan="2"<i><b><%= comment.comment %></i></b></td>	
+    <td colspan="2"<i><b><%=raw comment.comment %></i></b></td>	
   </tr>
 	<!--	
     <td><%= link_to 'Show', comment %></td>
@@ -233,7 +237,7 @@ WHERE a.cod_origin_id = 2 AND a.origin_id = " + @event.id.to_s).each do |comment
     
    <div class="field">
     <label for="comment_user">User</label><br />
-	<select id="comment_user_id" name="comment[user_id]"><option value="<%= current_user.id %>"><%= current_user.id %></option></select>	
+	<select id="comment_user_id" name="comment[user_id]"><option value="<%= current_user.id %>"><%= current_user.email %></option></select>	
   </div> 
   
   
@@ -244,11 +248,20 @@ WHERE a.cod_origin_id = 2 AND a.origin_id = " + @event.id.to_s).each do |comment
   </div>   
   
 
-  
+
   <div class="field">
-    <label for="comment_comment">Comentario:</label><br />
-    <input id="comment_comment" name="comment[comment]" size="30" type="text" />
-  </div>  
+    <label for="comment_comment">Comment</label><br />
+
+    <textarea class="editor" cols="70" id="comment_comment_editor" name="comment[comment]" rows="20" style="width:100%;height:100%"></textarea><script type="text/javascript">
+//<![CDATA[
+if (CKEDITOR.instances['comment_comment_editor']) { 
+        CKEDITOR.remove(CKEDITOR.instances['comment_comment_editor']);}
+        CKEDITOR.replace('comment_comment_editor', { filebrowserImageBrowseUrl: '/ckeditor/images',height: '100%',toolbar: 'Full',filebrowserImageUploadUrl: '/ckeditor/create/image',language: 'en',filebrowserBrowseUrl: '/ckeditor/files',width: '100%',filebrowserUploadUrl: '/ckeditor/create/file' });
+//]]>
+</script>
+
+  
+
   
   <div class="actions">
     <input id="comment_submit" name="commit" type="submit" value="Compartir" />
