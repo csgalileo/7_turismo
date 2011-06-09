@@ -4,3 +4,4 @@
 			document.write('<li><a href="/locations">Ubicaciones</a></li>');
 			document.write('<li><a href="/events">Eventos</a></li>');			
 			document.write('<li><a href="/services">Servicios</a></li>');
+			document.write('<li><a href="/index/contactUs">Contáctenos</a></li>');

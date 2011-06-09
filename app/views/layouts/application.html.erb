@@ -103,10 +103,9 @@
 								where ads.rank =  rand.value  
 								)").each do |curradvertisement| %>
 	<br>
-	imagen : <%= curradvertisement.image_url %> 
-	link : /advertisement/<%= curradvertisement.id %> 
-	<a href="/advertisements/click?advid=<%= curradvertisement.id %>" target="_blank" > imagen link
-	</a>
+        <DIV ALIGN="CENTER">
+      <a href="/advertisements/click?advid=<%= curradvertisement.id %>" target="_blank" > <img src=<%= curradvertisement.image_url %>> </a>
+</DIV>	
 <% end %>
 </body>
 </html>

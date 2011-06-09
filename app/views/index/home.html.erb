@@ -1,1 +1,18 @@
-Saludos de parte del Gio, el Lic. y el Checha
+
+<% if (defined?(current_user))
+		if current_user != nil
+			if current_user.admin
+%>
+				<br>Saludos de parte del Gio, el Lic. y el Checha, administradores.
+		<%  else %>
+				
+				<br>cuando no sea admin Muestra el texto de Bienvenida <br>
+
+<%			end
+		else %>	
+		
+			<br>Este se muestra si no se ha loggeado nadie.
+		
+		<%end%>
+		 	
+<%	end %>

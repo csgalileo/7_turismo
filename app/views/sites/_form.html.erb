@@ -185,3 +185,27 @@ google.maps.event.addDomListener(window, 'load', initialize);
   
   
 <% end %>
+<script type="text/javascript">
+
+
+function site_validate_email(element){
+var regEx = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+if( !regEx.test(element.val() ) ) {
+element.css("border-color","red");
+alert("Direccion de correo no válida, verifique por favor.");
+} else{
+element.css("border-color","green");
+}
+}
+
+
+
+
+jQuery("#site_email").blur(function(){
+site_validate_email(jQuery(this));
+});
+
+
+
+</script>
+

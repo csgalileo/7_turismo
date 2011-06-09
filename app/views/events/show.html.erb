@@ -61,7 +61,10 @@ WHERE a.cod_origin_id = 2 AND a.origin_id = " + @event.id.to_s).each do |comment
 
 <p>
 
-
+<% if (defined?(current_user))
+   if current_user != nil
+  
+%>
 
 <form accept-charset="UTF-8" action="/comments?rediroriginid=<%=@event.id%>&redirorigin=2" class="new_comment" id="new_comment" method="post">
 <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" />
@@ -251,3 +254,10 @@ WHERE a.cod_origin_id = 2 AND a.origin_id = " + @event.id.to_s).each do |comment
     <input id="comment_submit" name="commit" type="submit" value="Compartir" />
   </div>
 </form>
+
+<%else %>
+	PARA AGREGAR COMENTARIOS DEBE INICIAR SESION
+<%end  
+   else %>
+	PARA AGREGAR COMENTARIOS DEBE INICIAR SESION
+<%end%>

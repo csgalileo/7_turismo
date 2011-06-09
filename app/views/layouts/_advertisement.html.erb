@@ -1,3 +1,6 @@
+
+
+
 <% Advertisement.find_by_sql("select * from advertisements where id = 
 								(select ads.id from(
 								select  @rownum:=@rownum+1 'rank', 
@@ -9,9 +12,8 @@
 								where ads.rank =  rand.value  
 								)").each do |curradvertisement| %>
 
-	<br>
-	imagen : <%= curradvertisement.image_url %> 
-	link : /advertisement/<%= curradvertisement.id %> 
-	<a href="/advertisements/click?advid=<%= curradvertisement.id %>" target="_blank" > imagen link
-	</a>
+<DIV ALIGN="CENTER">
+      <a href="/advertisements/click?advid=<%= curradvertisement.id %>" target="_blank" > <img src=<%= curradvertisement.image_url %>> </a>
+</DIV>	
+	
 <% end %>

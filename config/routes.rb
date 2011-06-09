@@ -36,10 +36,14 @@ TuriGuate::Application.routes.draw do
   
   resources :index do 
 	collection do 
+		get 'contactUs'
 		get 'search'
+
 	end 
   end 
-    
+ 
+	
+	      
   devise_for :users
     
 
