@@ -16,6 +16,7 @@ TuriGuate::Application.routes.draw do
 		get 'click'
 	end 
   end 
+  
   resources :advertisements
 
   resources :images
